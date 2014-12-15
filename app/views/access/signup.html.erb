@@ -1,5 +1,4 @@
-<div class="text-center">
-<h1>Please sign up to register for classes!</h1>
+<h1>Signup</h1>
 
 <% if @user.errors.any? %>
   <% @user.errors.full_messages.each do |error| %>
@@ -8,31 +7,22 @@
 <% end %>
 
 <%= form_for(@user, url: signup_path) do |f|%>
-<p>
-  <%= f.label(:name)%>
-  <%= f.text_field(:name, autofocus: true) %>
-</p>
-<p>
-  <%= f.label(:username)%>
-  <%= f.text_field(:username) %>
-</p>
 
 <p>
-  <%= f.label(:password)%>
+  <%= f.label(:username) %>
+  <%= f.text_field(:username, autofocus: true) %>
+</p>
+<p>
+  <%= f.label(:email)%>
+  <%= f.text_field(:email)%>
+</p>
+<p>
+  <%= f.label(:password) %>
   <%= f.password_field(:password) %>
 </p>
-
 <p>
-  <%= f.label(:password_confirmation, "Confirm password")%>
-  <%= f.password_field(:password_confirmation) %>
+  <%= f.submit("Signup", class: "btn btn-primary") %>
 </p>
-
-<p>
-  <%= f.submit("Sign up", class: "btn btn-primary")%>
-</p>
-
+  <%= link_to "Have an account already? Log in here", login_path %>
 <% end %>
-<p>
-  <%= link_to("Already have an account? Log in here", login_path) %>
-</p>
-</div>
+
