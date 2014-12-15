@@ -21,6 +21,9 @@
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>
+
+
+
   <div class ="row">
     <div class ="col-xs-12 col-sm-6 col-md-8">
     <br>
@@ -46,21 +49,21 @@
         </p>
         <p>
           <%= f.label(:start_date) %>
-          <%= f.password_field(:start_date) %>
+          <%= f.text_field(:start_date) %>
         </p>
         <p>
           <%= f.label(:end_date) %>
-          <%= f.password_field(:end_date) %>
+          <%= f.text_field(:end_date) %>
         </p>
         <p>
           <%= f.label(:notes) %>
-          <%= f.password_field(:notes) %>
+          <%= f.text_field(:notes) %>
         </p>
         <p>
           <%= f.label(:image) %>
-          <%= f.password_field(:image) %>
+          <%= f.text_field(:image) %>
         </p>
-        <%= hidden_field_tag(:created_at, Time.now ) %>
+
         <p>
           <%= f.submit("Signup", class: "btn-tripr-inverse") %>
         </p>
@@ -73,4 +76,4 @@
   </div>
 </div>
 
-<!-- Other things to do here: rename form inputs, put placeholders in, make the boxes aligned and better lengths, add the image upload and make the background image this one make the box the length of the form flex with form size -->
+<!-- Other things to do here: date input? add hidden field date stamp, rename form inputs, put placeholders in, make the boxes aligned and better lengths, add the image upload and make the background image this one make the box the length of the form flex with form size. Make the location input form an autocomplete google maps form. Option to add people - from friends.  -->
