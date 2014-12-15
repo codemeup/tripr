@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'access#login'
+
   get 'login', to: "access#login", as: 'login'
 
   get 'signup', to: "access#signup", as: 'signup'

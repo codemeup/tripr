@@ -1,15 +1,15 @@
 class Activity < ActiveRecord::Base
-belongs_to :trips
+belongs_to :trip
 
 validates :name,
 presence: true
 validates :category,
 presence: true
-validates :location,
+validates :address,
 presence: true
-validates :zipCode,
+validates :zip_code,
 presence: true
-validates :timePeriod,
+validates :time_period,
 presence: true
 
 end

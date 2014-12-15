@@ -1,14 +1,15 @@
 class Trip < ActiveRecord::Base
-has_and_belongs_to_many :users
+has_many :trip_users
+has_many :users, through: :trip_users
 has_many :activities
 
-validates :tripName,
+validates :trip_name,
 presence: true
-validates :primaryLocation,
+validates :primary_location,
 presence: true
-validates :startDate,
+validates :start_date,
 presence: true
-validates :endDate,
+validates :end_date,
 presence: true
 
 end

@@ -5,15 +5,12 @@ class CreateActivities < ActiveRecord::Migration
       t.string :summary
       t.string :link
       t.string :category
-      t.string :location
-      t.string :zipCode
-      t.boolean :booked
-      t.time :timePeriod
-      t.datetime :proposedOn
-      t.boolean :booked
-      t.datetime :bookedOn
-      t.float :rating
-      t.string :comments
+      t.string :address
+      t.string :zip_code
+      t.boolean :booked, default: false
+      t.time :time_period
+      t.datetime :proposed_on
+      t.datetime :booked_on
       t.string :created_at
       t.integer :trip_id
 

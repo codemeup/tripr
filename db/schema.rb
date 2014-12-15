@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214230022) do
+ActiveRecord::Schema.define(version: 20141215193202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20141214230022) do
     t.string   "summary"
     t.string   "link"
     t.string   "category"
-    t.string   "location"
-    t.string   "zipCode"
-    t.boolean  "booked"
-    t.time     "timePeriod"
-    t.datetime "proposedOn"
-    t.datetime "bookedOn"
+    t.string   "address"
+    t.string   "zip_code"
+    t.boolean  "booked",      default: false
+    t.time     "time_period"
+    t.datetime "proposed_on"
+    t.datetime "booked_on"
     t.float    "rating"
     t.string   "comments"
     t.datetime "created_at"
@@ -34,11 +34,27 @@ ActiveRecord::Schema.define(version: 20141214230022) do
     t.datetime "updated_at"
   end
 
+  create_table "reviews", force: true do |t|
+    t.float    "rating"
+    t.string   "comment"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trip_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "trips", force: true do |t|
-    t.string   "tripName"
-    t.string   "primaryLocation"
-    t.string   "startDate"
-    t.string   "endDate"
+    t.string   "trip_name"
+    t.string   "primary_location_city"
+    t.string   "primary_location_country"
+    t.string   "start_date"
+    t.string   "end_date"
     t.string   "notes"
     t.string   "image"
     t.string   "weather"
