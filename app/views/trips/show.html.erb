@@ -1,19 +1,59 @@
 <div class ="row">
-    <div class ="col-xs-12 col-sm-6 col-md-8">
+    <div class ="col">
     <br>
-      <span><h1> TRIPNAMEHERE , </h1><h4>( City, Country )</h4></span>
+    <div class="col-xs-12 col-sm-6 col-md-8">
+      <span class="inline-block">
+        <p class="headerstart"> Tripname </p><p class="headerend">(city, country)</p><p class="countdowntimer"><span id="countdown"></span></p>
+      </span>
+      </div>
     </div>
   </div>
     <div class ="row">
-      <div class ="col-xs-6 col-md-4">
+      <div class ="sidebarfeed col-xs-6 col-md-4">
+      <%= user.trip.name %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8">
-        <div class="table-responsive">
-          <table class="table">
-            ...
-          </table>
-        </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+// set the date we're counting down to
+var target_date = new Date("Jan 31, 2015 0:00 PM").getTime();
+
+// variables for time units
+var days, hours, minutes, seconds;
+
+// get tag element
+var countdown = document.getElementById("countdown");
+
+// update the tag with id "countdown" every 1 second
+setInterval(function () {
+
+    // find the amount of "seconds" between now and target
+    var current_date = new Date().getTime();
+    var seconds_left = (target_date - current_date) / 1000;
+
+    // do some time calculations
+    days = parseInt(seconds_left / 86400);
+    seconds_left = seconds_left % 86400;
+
+    hours = parseInt(seconds_left / 3600);
+    seconds_left = seconds_left % 3600;
+
+    minutes = parseInt(seconds_left / 60);
+    seconds = parseInt(seconds_left % 60);
+
+    // format countdown string + set tag value
+    countdown.innerHTML = days + "d, " + hours + "h, "
+    + minutes + "m, " + seconds + "s";
+
+}, 1000);
+</script>
+<script>
+  $('#animatedElement').onClick(function() {
+    $(this).addClass("fadeIn");
+  });
+</script>
+
+To do: Get it to pull through the trip headline details | get it to set out a diary form using trip dates | get the countdown clock to use date for this trip | add activities window on the left | add links for the activities through to the activity pages or pop up modals showing details (perhaps better - no need to leave the page).

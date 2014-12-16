@@ -27,10 +27,9 @@ ActiveRecord::Schema.define(version: 20141215193202) do
     t.time     "time_period"
     t.datetime "proposed_on"
     t.datetime "booked_on"
-    t.float    "rating"
-    t.string   "comments"
     t.datetime "created_at"
     t.integer  "trip_id"
+    t.float    "cost"
     t.datetime "updated_at"
   end
 
@@ -53,8 +52,8 @@ ActiveRecord::Schema.define(version: 20141215193202) do
     t.string   "trip_name"
     t.string   "primary_location_city"
     t.string   "primary_location_country"
-    t.string   "start_date"
-    t.string   "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string   "notes"
     t.string   "image"
     t.string   "weather"

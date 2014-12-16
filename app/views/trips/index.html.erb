@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/trips">Tripr</a>
+      </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/trips">Link</a></li>
+          <li><%= link_to "Logout", logout_path%></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+
+
+
+
+
+  <div class ="row">
+    <div class ="col">
+      <br>
+      <span class="inline-block">
+        <p class="welcome"> Welcome to Tripr! </p><p class="headerend">     ...not long now...</p><p class="countdowntimer"><span id="countdown"></span></p>
+      </span>
+    </div>
+   </div>
+   <div class ="row">
+    <div class ="col">
+      <span class="inline-block">
+      <btn class = "btn btn-tripr-add"><%= link_to "+ NEW ADVENTURE", new_trip_path%></btn>
+      </span>
+    </div>
+  </div>
+  <div class ="circle row">
+    <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips">Hvar, Croatia</a></p></div>
+    <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips">Hvar, Croatia</a></p></div>
+    <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips">Hvar, Croatia</a></p></div>
+  </div>
+</div>
+<h5>
+To do: Get it to list the trips | nice display for the trips | display trips ranked by date latest most recent | link the countdown timer to time for next trip | add links for the trips through to the trip pages | style the circles to spread evenly across the pages.</h5>
+<script>
+// set the date we're counting down to
+var target_date = new Date("Jan 31, 2015 0:00 PM").getTime();
+
+// variables for time units
+var days, hours, minutes, seconds;
+
+// get tag element
+var countdown = document.getElementById("countdown");
+
+// update the tag with id "countdown" every 1 second
+setInterval(function () {
+
+    // find the amount of "seconds" between now and target
+    var current_date = new Date().getTime();
+    var seconds_left = (target_date - current_date) / 1000;
+
+    // do some time calculations
+    days = parseInt(seconds_left / 86400);
+    seconds_left = seconds_left % 86400;
+
+    hours = parseInt(seconds_left / 3600);
+    seconds_left = seconds_left % 3600;
+
+    minutes = parseInt(seconds_left / 60);
+    seconds = parseInt(seconds_left % 60);
+
+    // format countdown string + set tag value
+    countdown.innerHTML = days + "d, " + hours + "h, "
+    + minutes + "m, " + seconds + "s";
+
+}, 1000);
+</script>
+<script>
+  $('#animatedElement').onClick(function() {
+    $(this).addClass("fadeIn");
+  });
+</script>

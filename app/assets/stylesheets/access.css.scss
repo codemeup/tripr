@@ -9,15 +9,16 @@ body{
   background: url('positanonight.jpg') no-repeat center center fixed;
   background-size: cover;
   width:100%;
+  letter-spacing: 2px;
 }
 
 .glyphicon glyphicon-globe{
   color: black;
 }
 
-h1{
+.welcome{
   font-family: mankSans;
-  font-size: 50px;
+  font-size: 49px;
 }
 
 input{
@@ -51,6 +52,31 @@ input{
   };
 }
 
+.btn.btn-tripr-add {
+  border-radius: 0px;
+  border-color: white;
+  border: 2px solid white;
+  background-image: none;
+  background: #fff;
+  opacity: .5;
+
+  display: inline-block;
+
+  float: right !important;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  &:hover {
+    background: white;
+    color: white;
+    border: 2px solid white;
+    text-decoration: none;
+  };
+}
+
+
+
 a{
   color:white;
 }
@@ -61,17 +87,30 @@ a{
   padding: 20px;
 }
 
-.col-xs-12 .col-md-8{
+.sidebarfeed .col-xs-6 .col-md-4{
  background-color: white;
  border: 2px solid white;
  color: blue;
+ width: 200px;
+ height: 200px;
 }
 
-.col-xs-6 .col-md-4{
- background-color: white;
- border: 2px solid white;
- color: blue;
+.col-md-8{
+  width: 100%;
 }
+
+
+// .col-xs-12 .col-md-8{
+//  background-color: white;
+//  border: 2px solid white;
+//  color: blue;
+// }
+
+// .col-xs-6 .col-md-4{
+//  background-color: white;
+//  border: 2px solid white;
+//  color: blue;
+// }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   padding-left: 0px;
@@ -81,7 +120,50 @@ a{
   background: #fff;
   opacity: .8;
   width: 100%;
-  height: 330px;
+  height: 480px;
   padding: 20px;
   color: black;
 }
+
+.headerstart{
+    font-size: 30px;
+  }
+.headerend{
+    font-size: 20px;
+    color: grey;
+  }
+.countdowntimer{
+    font-size: 30px;
+    float: right !important;
+}
+
+.inline-block p{
+  display: inline-block;
+}
+
+.lilcircle{
+  height:250px;
+  width: 250px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: pink;
+  background: url('http://blog.travefy.com/wp-content/uploads/2013/07/wonderful-beach-hd-wallpaper-nature-amp-landscape-wallpapers.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 40px;
+  &:hover {
+    text-decoration: none;
+  };
+}
+
+.locationcenter{
+  position: relative;
+  vertical-align: center;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 110px;
+}
+
+#countdown{
+  font-size: 49px;
+}
+

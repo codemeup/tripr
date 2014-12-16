@@ -13,6 +13,7 @@ class CreateActivities < ActiveRecord::Migration
       t.datetime :booked_on
       t.string :created_at
       t.integer :trip_id
+      t.float :cost
 
 
       t.timestamps

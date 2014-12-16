@@ -4,8 +4,8 @@ class CreateTrips < ActiveRecord::Migration
       t.string :trip_name
       t.string :primary_location_city
       t.string :primary_location_country
-      t.string :start_date
-      t.string :end_date
+      t.datetime :start_date
+      t.datetime :end_date
       t.string :notes
       t.string :image
       t.string :weather

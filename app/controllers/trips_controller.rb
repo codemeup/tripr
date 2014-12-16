@@ -11,12 +11,17 @@ class TripsController < ApplicationController
 
   def create
    @trip = Trip.create(trip_params)
-   if @trip.save
-      flash[:success] = "Trip created"
-      redirect_to trips_path
-   else
-     render :new
+   # if validate_end_date_before_start_date != false
+     if @trip.save
+        flash[:success] = "Trip created"
+        redirect_to trip_path(@trip)
+     else
+       render :new
     end
+  #   else
+  #   flash[:success] = "Oops!"
+  #   render :new
+  # end
   end
 
   def edit
@@ -42,6 +47,11 @@ class TripsController < ApplicationController
     trip = Trip.find(params[:id])
     trip.destroy
     flash[:success] = "Trip deleted"
-    redirect_to tripss_path
+    redirect_to trips_path
   end
+
+  def trip_params
+    params.require(:trip).permit(:trip_name, :primary_location_city, :primary_location_country, :start_date, :end_date, :image, :notes)
+  end
+
 end

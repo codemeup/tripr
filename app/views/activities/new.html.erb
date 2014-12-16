@@ -1,2 +1,87 @@
-<h1>Activities#new</h1>
-<p>Find me in app/views/activities/new.html.erb</p>
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/trips">Tripr</a>
+      </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li><%= link_to "Logout", logout_path%></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+  <div class ="row">
+    <div class ="col-xs-12 col-sm-6 col-md-8">
+    <br>
+      <h1>What's on your agenda? </h1>
+    </div>
+  </div>
+    <div class ="row">
+    <div class ="col-xs-12 col-sm-6 col-md-8" id="newTripForm">
+
+      <%= form_for(@activity, url: activities_path) do |f|%>
+
+        <p>
+          <%= f.label(:name) %>
+          <%= f.text_field(:name, autofocus: true) %>
+        </p>
+        <p>
+          <%= f.label(:summary)%>
+          <%= f.text_field(:summary)%>
+        </p>
+        <p>
+          <%= f.label(:link)%>
+          <%= f.text_field(:link)%>
+        </p>
+        <p>
+          <%= f.label(:category) %>
+          <%= f.text_field(:category) %>
+        </p>
+        <p>
+          <%= f.label(:address) %>
+          <%= f.text_field(:address) %>
+        </p>
+        <p>
+          <%= f.label(:zip_code) %>
+          <%= f.text_field(:zip_code) %>
+        </p>
+        <p>
+          <%= f.label(:time_period) %>
+          <%= f.time_field(:time_period) %>
+        </p>
+        <p>
+          <%= f.label(:cost) %>
+          <%= f.number_field(:cost, step: 0.01) %>
+        </p>
+
+        <p>
+          <%= f.submit("Add Activity", class: "btn-tripr-inverse") %>
+        </p>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+Other things to do here: add hidden field date created stamp | sort out the time period field - it shows a time at the moment | add hidden field trip_id | make the category field a dropdown finite list? | rename form inputs | put placeholders in | make the boxes aligned and better lengths | make the background image this one | make the box the length of the form flex with form size | Make the location address input form an autocomplete google maps form | Add twitter/fb/g+ ? |

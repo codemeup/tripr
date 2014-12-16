@@ -11,7 +11,7 @@ class AccessController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "You are now logged in!"
-      redirect_to home_path
+      redirect_to trips_path
     else
       render :signup
     end
@@ -40,7 +40,7 @@ class AccessController < ApplicationController
     else
       session[:user_id] = authorized_user.id
       flash[:success] = "You are now logged in."
-      redirect_to home_path
+      redirect_to trips_path
     end
 
   end

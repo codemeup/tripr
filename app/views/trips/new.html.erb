@@ -2,7 +2,7 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" href="access#home">Tripr</a>
+        <a class="navbar-brand" href="/trips">Tripr</a>
       </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
@@ -33,7 +33,7 @@
     <div class ="row">
     <div class ="col-xs-12 col-sm-6 col-md-8" id="newTripForm">
 
-      <%= form_for(@trip, url: new_trip_path) do |f|%>
+      <%= form_for(@trip, url: trips_path) do |f|%>
 
         <p>
           <%= f.label(:trip_name) %>
@@ -49,11 +49,11 @@
         </p>
         <p>
           <%= f.label(:start_date) %>
-          <%= f.text_field(:start_date) %>
+          <%= f.datetime_select(:start_date) %>
         </p>
         <p>
           <%= f.label(:end_date) %>
-          <%= f.text_field(:end_date) %>
+          <%= f.datetime_select(:end_date) %>
         </p>
         <p>
           <%= f.label(:notes) %>
@@ -65,7 +65,7 @@
         </p>
 
         <p>
-          <%= f.submit("Signup", class: "btn-tripr-inverse") %>
+          <%= f.submit("Add Trip", class: "btn-tripr-inverse") %>
         </p>
 
       <% end %>
@@ -76,4 +76,4 @@
   </div>
 </div>
 
-<!-- Other things to do here: date input? add hidden field date stamp, rename form inputs, put placeholders in, make the boxes aligned and better lengths, add the image upload and make the background image this one make the box the length of the form flex with form size. Make the location input form an autocomplete google maps form. Option to add people - from friends.  -->
+Other things to do here: date input | add hidden field date stamp, rename form inputs | put placeholders in | make the boxes aligned and better lengths | add the image upload and make the background image this one | make the box the length of the form flex with form size | Make the location input form an autocomplete google maps form | Option to add people - from friends | Make sure the end date is after start date validation workd - code started in model and controller | Add twitter/fb/g+ ? |
