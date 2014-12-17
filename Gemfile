@@ -31,9 +31,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem 'momentjs-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'fullcalendar-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
