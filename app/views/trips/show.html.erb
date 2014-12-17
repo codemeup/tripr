@@ -1,25 +1,49 @@
-<div class ="row">
-    <div class ="col">
-    <br>
-    <div class="col-xs-12 col-sm-6 col-md-8">
-      <span class="inline-block">
-        <p class="headerstart"> Tripname </p><p class="headerend">(city, country)</p><p class="countdowntimer"><span id="countdown"></span></p>
-      </span>
+<%= render 'layouts/header' %>
+  <div class ="row">
+      <div class ="col">
+      <br>
+      <div class="col-xs-12 col-sm-6 col-md-8">
+        <span class="inline-block">
+          <p class="headerstart"> <%= @trip.trip_name %>&nbsp</p><p class="headerend">(<%= @trip.primary_location_city %>,&nbsp<%= @trip.primary_location_country %>)</p><p class="countdowntimer"><span id="countdown"></span></p>
+        </span>
+        </div>
       </div>
     </div>
-  </div>
     <div class ="row">
-      <div class ="sidebarfeed col-xs-6 col-md-4">
-      <%= user.trip.name %>
-      </div>
+      <div class ="col">
+      <br>
       <div class="col-xs-12 col-sm-6 col-md-8">
+        <span class="inline-block">
+          <p class="tripdetail">Departure: <%= @trip.start_date %> </p>&nbsp&nbsp<p class="tripdetail">Return: <%= @trip.start_date %> </p>
+        <btn class = "btn btn-tripr-add"><%= link_to "+ NEW ACTIVITY", new_trip_activity_path(@trip.id) %></btn>
+        </span>
+        </div>
+      </div>
+    </div>
+      <div class ="row">
+        <div class ="sidebarfeed col-xs-6 col-md-4">
+          <span class="inline-block"><p>ACTIVITY BAR</p><btn class = "btn btn-activ-add"><%= link_to "+ NEW", new_trip_activity_path(@trip.id) %></btn></span>
+          <% @trip.activities.each do |a|  %>
+            <div>
+            Activity: <%= a.name %>
+            Address: <%= a.address %>
+            Cost: $<%= a.cost %>
+            </div>
+          <% end  %>
+        </div>
+        <div class="tripdiaryday col-xs-12 col-sm-6 col-md-8">
+          <p>TRIP PLANNER</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= render 'layouts/footer' %>
+
 <script>
 // set the date we're counting down to
-var target_date = new Date("Jan 31, 2015 0:00 PM").getTime();
+var target_date = new Date("<%= @trip.start_date %>").getTime();
 
 // variables for time units
 var days, hours, minutes, seconds;
@@ -56,4 +80,4 @@ setInterval(function () {
   });
 </script>
 
-To do: Get it to pull through the trip headline details | get it to set out a diary form using trip dates | get the countdown clock to use date for this trip | add activities window on the left | add links for the activities through to the activity pages or pop up modals showing details (perhaps better - no need to leave the page).
+To do: get it to set out a diary form using trip dates | get the countdown clock to use date for this trip | add activities window on the left | add links for the activities through to the activity pages or pop up modals showing details (perhaps better - no need to leave the page).

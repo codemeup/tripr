@@ -17,7 +17,7 @@ class TripsController < ApplicationController
         redirect_to trip_path(@trip)
      else
        render :new
-    end
+     end
   #   else
   #   flash[:success] = "Oops!"
   #   render :new
@@ -53,5 +53,4 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(:trip_name, :primary_location_city, :primary_location_country, :start_date, :end_date, :image, :notes)
   end
-
 end

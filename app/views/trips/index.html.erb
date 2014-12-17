@@ -1,37 +1,10 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="/trips">Tripr</a>
-      </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/trips">Link</a></li>
-          <li><%= link_to "Logout", logout_path%></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div>
-  </nav>
-
-
-
-
-
+<%= render 'layouts/header' %>
 
   <div class ="row">
     <div class ="col">
       <br>
       <span class="inline-block">
-        <p class="welcome"> Welcome to Tripr! </p><p class="headerend">     ...not long now...</p><p class="countdowntimer"><span id="countdown"></span></p>
+        <p class="welcome"> Welcome to Tripr! </p><p class="headerend"> &nbsp not long now...</p><p class="countdowntimer"><span id="countdown"></span></p>
       </span>
     </div>
    </div>
@@ -43,13 +16,16 @@
     </div>
   </div>
   <div class ="circle row">
-    <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips">Hvar, Croatia</a></p></div>
-    <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips">Hvar, Croatia</a></p></div>
-    <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips">Hvar, Croatia</a></p></div>
+    <% @trips.each do |trip| %>
+      <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips/<%= trip.id %>"><%= trip.primary_location_city %><br> (<%= trip.primary_location_country%>)</a></p></div>
+    <% end %>
   </div>
 </div>
 <h5>
-To do: Get it to list the trips | nice display for the trips | display trips ranked by date latest most recent | link the countdown timer to time for next trip | add links for the trips through to the trip pages | style the circles to spread evenly across the pages.</h5>
+To do: Take the blue background off | Get it to order the trips furthest into future first| nice display for the trips | figure out which is 'next' trip to put into countdown timer </h5>
+
+<%= render 'layouts/footer' %>
+
 <script>
 // set the date we're counting down to
 var target_date = new Date("Jan 31, 2015 0:00 PM").getTime();

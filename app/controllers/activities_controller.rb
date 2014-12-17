@@ -7,14 +7,14 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @trip_id = params[:trip_id]
   end
 
   def create
-   @activity = Activity.create(activity_params)
-     if @activity.save
-        flash[:success] = "Activity created"
-        redirect_to trip_path(@activity)
-     else
+    @activity = Activity.create(activity_params)
+    if @activity.save
+    redirect_to trip_path(activity_params["trip_id"])
+    else
        render :new
     end
   end
