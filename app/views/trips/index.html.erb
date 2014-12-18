@@ -17,12 +17,13 @@
   </div>
   <div class ="circle row">
     <% @trips.each do |trip| %>
-      <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips/<%= trip.id %>"><%= trip.primary_location_city %><br> (<%= trip.primary_location_country%>)</a></p></div>
+      <div class="lilcircle col-xs-6 col-sm-4 col-md-4"><p class="locationcenter"><a href="/trips/<%= trip.id %>"><%= trip.primary_location_city %>,<br><%= trip.primary_location_country%></a></p>
+     </div>
     <% end %>
   </div>
 </div>
-<h5>
-To do: Take the blue background off | Get it to order the trips furthest into future first| nice display for the trips | figure out which is 'next' trip to put into countdown timer </h5>
+<!-- <h5>
+To do: Take the blue background off | Get it to order the trips furthest into future first| nice display for the trips | figure out which is 'next' trip to put into countdown timer </h5> -->
 
 <%= render 'layouts/footer' %>
 

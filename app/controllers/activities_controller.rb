@@ -29,7 +29,9 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id]) #find it
-    @activity.update_attributes (activity_params)#update attr
+    puts "activity_params"
+    p activity_params
+    @activity.update_attributes(activity_params)#update attr
     if @activity.save #save it
       flash[:success] = "Activity updated"
       redirect_to activities_path

@@ -1,17 +1,53 @@
 <%= render 'layouts/header' %>
 
     <script>
+      $('#calendar').fullCalendar({
+          events: [
+              {
+                  title: 'My Event',
+                  start: '2010-01-06',
+                  description: 'This is a cool event'
+              }
+              // more events here
+          ],
+          eventRender: function(event, element) {
+              element.qtip({
+                  content: event.description
+              });
+          }
+      });
     $(document).ready(function(){
       var date = gon.start_date;
+      var thisId = 0;
       console.log(date);
       $('#calendar').fullCalendar({
         droppable: true,
         dropAccept: '.draggable-event',
         drop: function(date, jsEvent, ui) {
-          console.log("dropped on date", date);
+          var dateset = date._i;
+          console.log("dateset", date._i);
+          // debugger;
           console.log("event that was dropped", this);
-          var m = calendar.moment();
-          console.log(m);
+          var id = this.innerHTML.trim().split('');
+          thisId = id[0];
+          console.log(thisId);
+          // debugger
+          //activity.findbyId(thisId);
+          $.ajax({
+            url: window.location.href + "/activities/" + thisId,
+            //dataType: 'json',
+            type: 'put',
+            contentType: 'application/x-www-form-urlencoded',
+            data: {
+              proposed_on: dateset
+            },
+            success: function( data, textStatus, jQxhr ){
+              console.log("success", data);
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+              console.log("error", errorThrown);
+            }
+          });
 
           // console.log(this.Moment._i);
         //   var noTZ = $.fullCalendar.moment._i('2014-05-01T12:00:00');
@@ -24,15 +60,18 @@
           //show it in the calendar
           //be draggable in the calendar
         },
+
         eventReceive: function () {
           alert("received");
         }
+
       });
       $('#calendar').fullCalendar('gotoDate', date );
       $('.my-draggable').draggable({
           revert: true,      // immediately snap back to original position
           revertDuration: 0
       });
+      console.log(thisId);
     });
 
 
@@ -75,7 +114,7 @@
       <div class="col-md-8">
         <span class="inline-block">
           <p class="tripdetail">Departure: <%= @trip.start_date %> </p>&nbsp&nbsp<p class="tripdetail">Return: <%= @trip.start_date %> </p>
-          <p class="tripdatecounttext"> ... counting down the days.</p>
+          <p class="tripdatecounttext"> ... counting down the days</p>
         </span>
         </div>
       </div>
@@ -88,7 +127,8 @@
           <p class="bar">ACTIVITY BAR</p><btn class = "btn btn-activ-add"><%= link_to "+ NEW", new_trip_activity_path(@trip.id) %></btn></span>
           <% @trip.activities.each do |a|  %>
             <div draggable="true" class="draggable-event my-draggable" >
-              <p class="acttitle"><%= a.title %>  ID: <%= a.id %></p>
+            <!-- <%= a.id %> -->
+              <p class="acttitle"><%= a.title %></p><!-- <p class="theId"><%= a.id %></p> -->
               <p class="actrest">Address: <%= a.address %>  Cost: $<%= a.cost %></p>
             </div>
           <% end  %>
@@ -96,7 +136,7 @@
         <div class="col-md-9 tripdiaryday">
         <br>
           <p class="bar">TRIP PLANNER</p>
-          <div id='calendar'></div>
+          <div id='calendar'> </div>
         </div>
       </div>
 
@@ -140,4 +180,4 @@ setInterval(function () {
 }, 1000);
 </script>
 
-To do: get it to highlight trip dates on the diary (only show trip dates) | 2 decimal points on price |get drag and drop activities working | add links for the activities through to the activity pages or pop up modals showing details (perhaps better - no need to leave the page) | style it.
+<!-- To do: get it to highlight trip dates on the diary (only show trip dates) | 2 decimal points on price |get drag and drop activities working | add links for the activities through to the activity pages or pop up modals showing details (perhaps better - no need to leave the page) | style it. -->

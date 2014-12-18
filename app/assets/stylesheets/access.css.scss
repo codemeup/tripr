@@ -175,7 +175,7 @@ a{
 }
 
 .headerstart{
-    font-size: 49px;
+    font-size: 46px;
   }
 .headerend{
     font-size: 20px;
@@ -210,10 +210,15 @@ a{
   text-align: center;
   font-size: 30px;
   padding-top: 90px;
+  a{
+    // color: #052480;
+    color: white;
+  }
+
 }
 
 #countdown{
-  font-size: 49px;
+  font-size: 46px;
 }
 
 .tripdetail{
@@ -275,6 +280,15 @@ color: white
   float: right;
 }
 
+.loginintitle{
+  color: white;
+  font-size: 49px;
+}
 
+.triprtitle{
+  float: right;
+  font-size: 30px;
+  color: white;
+}
 
 
