@@ -110,6 +110,12 @@ a{
   border: 2px solid white;
   width: 300px;
   padding: 20px;
+  background-color: white;
+  opacity: 0.8;
+  color: grey;
+  a{
+    color: grey;
+  }
 }
 
 .col-md-8{
@@ -216,4 +222,8 @@ a{
 option{
   font-family: mankSans !important;
   letter-spacing: 2px;
+}
+
+.text-danger{
+color:white
 }

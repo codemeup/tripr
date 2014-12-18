@@ -30,11 +30,11 @@ class AccessController < ApplicationController
     end
 
     if !found_user
-      flash.now[:alert] = "Invalid username"
+      flash.now[:alert] = "Sorry, that username is invalid."
       render :login
 
     elsif !authorized_user
-      flash.now[:alert] = "Invalid password"
+      flash.now[:alert] = "Sorry, that password is invalid"
       render :login
 
     else
@@ -52,7 +52,7 @@ class AccessController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    flash[:notice] = "Logged out"
+    flash[:notice] = "You are now logged out, we hope to see you again soon!"
     redirect_to login_path
   end
 

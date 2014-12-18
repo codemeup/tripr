@@ -9,8 +9,8 @@ class CreateActivities < ActiveRecord::Migration
       t.string :zip_code
       t.boolean :booked, default: false
       t.time :time_period
-      t.datetime :proposed_on
-      t.datetime :booked_on
+      t.date :proposed_on
+      t.date :booked_on
       t.string :created_at
       t.integer :trip_id
       t.float :cost

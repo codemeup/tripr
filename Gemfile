@@ -36,6 +36,7 @@ gem 'momentjs-rails'
 # gem 'capistrano-rails', group: :development
 gem 'fullcalendar-rails'
 gem 'gon'
+gem 'jquery-ui-rails'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
