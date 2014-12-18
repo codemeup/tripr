@@ -30,11 +30,11 @@
           console.log("event that was dropped", this);
           var id = this.innerHTML.trim().split('');
           thisId = id[0];
-          console.log(thisId);
-          // debugger
-          //activity.findbyId(thisId);
+          // console.log(thisId); //note: this is the html object
+          console.log(this.getAttribute("data-activity-id"));
+          //ajax call using data attribute to pass in the id:
           $.ajax({
-            url: window.location.href + "/activities/" + thisId,
+            url: window.location.href + "/activities/" + this.getAttribute("data-activity-id"),
             //dataType: 'json',
             type: 'put',
             contentType: 'application/x-www-form-urlencoded',
@@ -49,13 +49,7 @@
             }
           });
 
-          // console.log(this.Moment._i);
-        //   var noTZ = $.fullCalendar.moment._i('2014-05-01T12:00:00');
-        //   var l = moment.parseZone;
-        //   console.log($.fullCalendar.Moment[
-        // ]);
-          //some kind of ajax call or alternative to pass the date to the activity record and reset it's proposed date as date.
-          //use data attribute to pass in id?
+
           //set the activity in the activity bar to not show/when moved to new location in cal set to only show in new location
           //show it in the calendar
           //be draggable in the calendar
@@ -126,9 +120,8 @@
           <br>
           <p class="bar">ACTIVITY BAR</p><btn class = "btn btn-activ-add"><%= link_to "+ NEW", new_trip_activity_path(@trip.id) %></btn></span>
           <% @trip.activities.each do |a|  %>
-            <div draggable="true" class="draggable-event my-draggable" >
-            <!-- <%= a.id %> -->
-              <p class="acttitle"><%= a.title %></p><!-- <p class="theId"><%= a.id %></p> -->
+            <div draggable="true" class="draggable-event my-draggable" data-activity-id="<%= a.id %>">
+              <p class="acttitle"><%= a.title %></p>
               <p class="actrest">Address: <%= a.address %>  Cost: $<%= a.cost %></p>
             </div>
           <% end  %>
