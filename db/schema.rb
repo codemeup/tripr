@@ -17,16 +17,17 @@ ActiveRecord::Schema.define(version: 20141215193202) do
   enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
-    t.string   "name"
+    t.string   "title"
     t.string   "summary"
     t.string   "link"
     t.string   "category"
     t.string   "address"
     t.string   "zip_code"
     t.boolean  "booked",      default: false
-    t.time     "time_period"
-    t.datetime "proposed_on"
-    t.datetime "booked_on"
+    t.integer  "duration"
+    t.time     "time"
+    t.date     "proposed_on"
+    t.date     "booked_on"
     t.datetime "created_at"
     t.integer  "trip_id"
     t.float    "cost"

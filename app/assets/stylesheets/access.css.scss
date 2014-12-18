@@ -1,19 +1,21 @@
 .container-fluid{
-  margin-top: 30px !important;;
-  width:100% !important;;
+  margin-top: 30px !important;
+  width:100% !important;
+  background-color: white;
+
 }
 
 body{
   font-family: mankSans !important;
   letter-spacing: 2px !important;
-  color: white !important;
+  color: grey ;
   background: url('positanonight.jpg') no-repeat center center fixed;
   background-size: cover;
   width:100%;
 }
 
 .glyphicon glyphicon-globe{
-  color: black;
+  color: grey;
 }
 
 .welcome{
@@ -22,7 +24,7 @@ body{
 }
 
 input{
-  color: black;
+  color: grey;
 }
 
 .btn-tripr{
@@ -32,7 +34,7 @@ input{
   background-image: none;
   background: #fff;
   opacity: .5;
-  color: black;
+  color: grey;
   &:hover {
     // background: pink;
   };
@@ -44,34 +46,51 @@ input{
   background-image: none;
   background: black;
   opacity: .5;
-  color: white;
+  // color: white;
+  color: grey;
   &:hover {
     background: white;
-    color: black;
+    color: grey;
       border: 2px solid black;
   };
 }
-
+.btn-tripr-inverse-new{
+    border-radius: 2px;
+  border-color: white;
+  border: 2px solid white;
+  background-image: none;
+  background: black;
+  opacity: .5;
+  // color: white;
+  color: grey;
+  &:hover {
+    background: white;
+    color: grey;
+      border: 2px solid black;
+  };
+}
 .btn.btn-tripr-add {
   border-radius: 0px;
   border-color: white;
   border: 2px solid white;
   background-image: none;
-  background: #fff;
+  background: grey;
+  color: white;
   opacity: .5;
-
   display: inline-block;
-
   float: right !important;
   a {
-    color: black;
+    color: white;
     text-decoration: none;
   }
   &:hover {
-    background: white;
-    color: white;
-    border: 2px solid white;
+     background: white;
+    // color: white;
+    color: grey;
     text-decoration: none;
+    a{
+      color: grey;
+    }
   };
 }
 .btn.btn-activ-add{
@@ -79,31 +98,38 @@ input{
   border-color: white;
   border: 0px solid white;
   background-image: none;
-  background: #fff;
+  background: grey;
+  color: white;
   opacity: .5;
   padding-left: 6px;
   padding-right: 6px;
   padding-top: 0px;
   padding-bottom: 0px;
   display: inline-block;
+  font-size: 20px;
 
   float: right !important;
   a {
-    color: black;
+    color: white;
     text-decoration: none;
+
   }
   &:hover {
     background: white;
-    color: white;
-    border: 2px solid white;
+    // color: white;
+    color: grey;
     text-decoration: none;
+    a{
+      color: grey;
+    }
   };
 }
 
 
 
 a{
-  color:white;
+  // color:white;
+  color: grey;
 }
 
 .logincontainer{
@@ -145,7 +171,7 @@ a{
   width: 100%;
   height: 420px;
   padding: 20px;
-  color: black;
+  color: grey;
 }
 
 .headerstart{
@@ -153,7 +179,7 @@ a{
   }
 .headerend{
     font-size: 20px;
-    color: grey;
+    color: #BECFC0;
   }
 .countdowntimer{
     font-size: 30px;
@@ -172,7 +198,7 @@ a{
   background-color: pink;
   background: url('http://blog.travefy.com/wp-content/uploads/2013/07/wonderful-beach-hd-wallpaper-nature-amp-landscape-wallpapers.jpg') no-repeat center center fixed;
   background-size: cover;
-  margin: 60px;
+  margin: 55px;
   &:hover {
     text-decoration: none;
   };
@@ -191,7 +217,7 @@ a{
 }
 
 .tripdetail{
-
+color: #BECFC0;
 }
 
 .sidebarfeed .col-xs-6 .col-md-4{
@@ -203,12 +229,9 @@ a{
  position: absolute;
 }
 
-.tripdiaryday{
-
-}
-
 .row{
-  background-color: #010136;
+  // background-color: #010136;
+  background-color: white;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -225,5 +248,33 @@ option{
 }
 
 .text-danger{
-color:white
+color: white
+
 }
+
+.bar{
+  font-size: 20px;
+  color: #BECFC0;
+}
+
+.acttitle{
+  font-family: mankSans ;
+  color: white;
+  text-decoration: strong;
+
+}
+.draggable-event{
+    background-color: #BECFC0;
+    padding: 5px;
+    margin: 2px;
+}
+.actrest{
+  font-size: 12px;
+}
+.tripdatecounttext{
+  float: right;
+}
+
+
+
+

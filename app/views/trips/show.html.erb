@@ -10,17 +10,26 @@
         drop: function(date, jsEvent, ui) {
           console.log("dropped on date", date);
           console.log("event that was dropped", this);
+          var m = calendar.moment();
+          console.log(m);
+
+          // console.log(this.Moment._i);
+        //   var noTZ = $.fullCalendar.moment._i('2014-05-01T12:00:00');
+        //   var l = moment.parseZone;
+        //   console.log($.fullCalendar.Moment[
+        // ]);
           //some kind of ajax call or alternative to pass the date to the activity record and reset it's proposed date as date.
           //use data attribute to pass in id?
-          //set the activity in the activity bar to not show
-          //
+          //set the activity in the activity bar to not show/when moved to new location in cal set to only show in new location
+          //show it in the calendar
+          //be draggable in the calendar
         },
         eventReceive: function () {
           alert("received");
         }
       });
       $('#calendar').fullCalendar('gotoDate', date );
-      $('#my-draggable').draggable({
+      $('.my-draggable').draggable({
           revert: true,      // immediately snap back to original position
           revertDuration: 0
       });
@@ -63,11 +72,10 @@
     </div>
     <div class ="row">
       <div class ="col">
-      <br>
       <div class="col-md-8">
         <span class="inline-block">
           <p class="tripdetail">Departure: <%= @trip.start_date %> </p>&nbsp&nbsp<p class="tripdetail">Return: <%= @trip.start_date %> </p>
-          <btn class = "btn btn-tripr-add"><%= link_to "+ NEW ACTIVITY", new_trip_activity_path(@trip.id)%></btn>
+          <p class="tripdatecounttext"> ... counting down the days.</p>
         </span>
         </div>
       </div>
@@ -75,17 +83,19 @@
 
       <div class ="row">
         <div class ="col-md-3 sidebarfeed">
-          <span class="inline-block"><p>ACTIVITY BAR</p><btn class = "btn btn-activ-add"><%= link_to "+ NEW", new_trip_activity_path(@trip.id) %></btn></span>
+          <span class="inline-block">
+          <br>
+          <p class="bar">ACTIVITY BAR</p><btn class = "btn btn-activ-add"><%= link_to "+ NEW", new_trip_activity_path(@trip.id) %></btn></span>
           <% @trip.activities.each do |a|  %>
-            <div draggable="true" class="draggable-event" id="my-draggable">
-            Activity: <%= a.name %>
-            Address: <%= a.address %>
-            Cost: $<%= a.cost %>
+            <div draggable="true" class="draggable-event my-draggable" >
+              <p class="acttitle"><%= a.title %>  ID: <%= a.id %></p>
+              <p class="actrest">Address: <%= a.address %>  Cost: $<%= a.cost %></p>
             </div>
           <% end  %>
         </div>
         <div class="col-md-9 tripdiaryday">
-          <p>TRIP PLANNER</p>
+        <br>
+          <p class="bar">TRIP PLANNER</p>
           <div id='calendar'></div>
         </div>
       </div>

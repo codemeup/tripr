@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.create(activity_params)
     if @activity.save
-    redirect_to trip_path(activity_params["trip_id"])
+    redirect_to trip_path(params["trip_id"])
     else
        render :new
     end
@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :summary, :link, :category, :address, :zip_code, :booked, :time_period, :proposed_on, :booked_on, :created_at, :trip_id, :cost)
+    params.require(:activity).permit(:title, :summary, :link, :category, :address, :zip_code, :booked, :duration, :proposed_on, :booked_on, :created_at, :trip_id, :cost)
   end
 
 end
