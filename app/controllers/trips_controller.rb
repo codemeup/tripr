@@ -30,6 +30,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    gon.start_date = @trip.start_date.as_json(:only => [:start_date])
   end
 
   def update

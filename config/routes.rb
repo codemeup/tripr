@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :events
+
   root 'access#login'
 
   get 'login', to: "access#login", as: 'login'
